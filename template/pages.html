@@ -1,0 +1,32 @@
+<html>
+
+<head>
+	<title>{{title}} - page {{pageNumber}} of {{pageCount}}</title>
+	<link rel="stylesheet" href="./content/pages.css" />
+</head>
+
+<body>
+
+	<div class="nav top">
+		<a class="first" href="{{firstPageLink}}"><img /></a>
+		<a class="back" href="{{backPageLink}}"><img /></a>
+		<div class="pageNumber">{{pageNumber}}</div>
+		<a class="next" href="{{nextPageLink}}"><img /></a>
+		<a class="last" href="{{lastPageLink}}"><img /></a>
+	</div>
+
+	<div class="stories">
+{{stories}}
+	</div>
+
+	<div class="nav bottom">
+		<a class="first" href="{{firstPageLink}}"><img /></a>
+		<a class="back" href="{{backPageLink}}"><img /></a>
+		<div class="pageNumber">{{pageNumber}}</div>
+		<a class="next" href="{{nextPageLink}}"><img /></a>
+		<a class="last" href="{{lastPageLink}}"><img /></a>
+	</div>
+
+</body>
+
+</html>
