@@ -21,11 +21,10 @@ div.story>object {
 }
 .nav>.pageNumber {
 	width: 96;
-	height: 64;
 	margin: 5;
-	border-style: solid;
-	border-color: black;
 	display: inline;
+	text-align: center;
+	padding: 0;
 }
 .nav>*>img {
 	width: 64;

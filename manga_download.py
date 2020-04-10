@@ -79,7 +79,7 @@ def createPage(src, title, pageRange, pageNumber, images):
 		pageStr = pagesTemp \
 				.replace('{{title}}', title) \
 				.replace('{{pageNumber}}', pageNum) \
-				.replace('{{pageCount}}', pageCount) \
+				.replace('{{pageCount}}', str(pageCount)) \
 				.replace('{{fromPage}}', str(fromPage)) \
 				.replace('{{toPage}}', str(toPage)) \
 				.replace('{{stories}}', contentStr) \
@@ -101,6 +101,7 @@ def downloadPage(src, title, pageRange, pageNumber, overridePage = False, downlo
 		return 0
 
 	url = src[1].format(title, pageNumber)
+	print('- Get Page from ', url)
 	try:
 		response = requests.get(url)
 		response.raise_for_status()
@@ -111,15 +112,14 @@ def downloadPage(src, title, pageRange, pageNumber, overridePage = False, downlo
 	soup = BeautifulSoup(response.content, 'html.parser')	# resp.text
 	print('- Page Loaded.')
 
+	images = {}
 	if src == TOONILY or src == WEBTOON:
 		content = soup.find(class_='reading-content')
 		for image in content.findAll('img'):
-			imageId = img['id'].strip()
-			imageSrc = img['data-src'].strip()
+			imageId = image['id'].strip()
+			imageSrc = image['data-src'].strip()
 			imageId = re.search('image-(.*)', imageId, re.IGNORECASE).group(1).zfill(3)
 			images[imageId] = imageSrc
-	else:
-		images = {}
 
 	createPage(src, title, pageRange, pageNumber, images)
 	return images
