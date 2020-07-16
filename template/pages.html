@@ -2,7 +2,7 @@
 
 <head>
 	<title>{{title}} - page {{pageNumber}} of {{pageCount}}</title>
-	<link rel="stylesheet" href="../../../content/pages.css" />
+	<link rel="stylesheet" href="../../content/pages.css" />
 	<link rel="stylesheet" href="./content/pages.css" />
 </head>
 
@@ -11,7 +11,7 @@
 	<div class="nav top">
 		<a class="first" href="{{firstPageLink}}"><img /></a>
 		<a class="back" href="{{backPageLink}}"><img /></a>
-		<span class="pageNumber">{{pageNumber}}</span>
+		<textarea class="pageNumber" readonly>{{pageNumber}}</textarea>
 		<a class="next" href="{{nextPageLink}}"><img /></a>
 		<a class="last" href="{{lastPageLink}}"><img /></a>
 	</div>
@@ -23,7 +23,7 @@
 	<div class="nav bottom">
 		<a class="first" href="{{firstPageLink}}"><img /></a>
 		<a class="back" href="{{backPageLink}}"><img /></a>
-		<span class="pageNumber">{{pageNumber}}</span>
+		<textarea class="pageNumber" readonly>{{pageNumber}}</textarea>
 		<a class="next" href="{{nextPageLink}}"><img /></a>
 		<a class="last" href="{{lastPageLink}}"><img /></a>
 	</div>

@@ -1,0 +1,63 @@
+:root {
+	--main-bg-color: rgb(32,32,32);
+	--nav-block-size: 64px;
+}
+
+@media only screen and (min-width: 1000px) {
+	:root {
+		--nav-block-size: 96px;
+	}
+}
+
+html{
+	background-color: var(--main-bg-color);
+}
+
+div.story {
+	align-content: center;
+	text-align: center;
+}
+
+div.story>object {
+	max-width: 750;
+	width: 100%;
+}
+
+.nav {
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+.nav>.pageNumber {
+	background-color: white;
+	width: var(--nav-block-size);
+	height: var(--nav-block-size);
+	margin: 5;
+	display: inline-block;
+	text-align: center;
+	font-size: x-large;
+	color: black;
+	resize: none;
+	padding: calc(var(--nav-block-size)/4) 0;
+}
+.nav>*>img {
+	background-color: white;
+	width: var(--nav-block-size);
+	height: var(--nav-block-size);
+	margin: 5;
+	border-style: solid;
+	border-color: black;
+	display: inline-block;
+}
+.nav>.first>img {
+	content: url(../../../content/images/first.svg);
+}
+.nav>.back>img {
+	content: url(../../../content/images/back.svg);
+}
+.nav>.next>img {
+	content: url(../../../content/images/next.svg);
+}
+.nav>.last>img {
+	content: url(../../../content/images/last.svg);
+}

@@ -115,9 +115,14 @@ def downloadPage(src, title, pageRange, pageNumber, overridePage = False, downlo
 	images = {}
 	if src == TOONILY or src == WEBTOON:
 		content = soup.find(class_='reading-content')
-		for image in content.findAll('img'):
+		elements = content.findAll('img')
+		for image in elements:
+			if (not 'src' in image.attrs) and (not 'data-src' in image.attrs):
+				print("wierd img")
+				continue
+
 			imageId = image['id'].strip()
-			imageSrc = image['data-src'].strip()
+			imageSrc = (image.attrs.get('data-src') or image.attrs.get('src')).strip()
 			imageId = re.search('image-(.*)', imageId, re.IGNORECASE).group(1).zfill(3)
 			images[imageId] = imageSrc
 
